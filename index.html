@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Load d3-cloud -->
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+
+<body>
+
+Redner:in
+<form>
+    <select id = "author"  >
+        <option> Angela+Merkel </option>
+        <option> Frank-Walter+Steinmeier </option>
+        <option> Joachim+Gauck </option>
+        <option> Johannes+Rau </option>
+    </select>
+</form>
+Start Datum
+<form>
+    <select id = "start" >
+        <option> 1995 </option>
+        <option> 2010 </option>
+        <option> 2015 </option>
+        <option> 2020 </option>
+    </select>
+</form>
+End Datum
+<form>
+    <select id = "stop" >
+        <option> 2000 </option>
+        <option> 2010 </option>
+        <option> 2015 </option>
+        <option> 2020 </option>
+    </select>
+</form>
+<button type="button" onclick="rerun()">Los!</button>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+<script src="index.js" ></script>
+</body>
+
+
