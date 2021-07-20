@@ -1,46 +1,64 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
-
-<!-- Load d3-cloud -->
-<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
-
+<html>
+<head>
+    <script src="index.js" type='text/javascript'></script>
+</head>
 <body>
 
-Redner:in
-<form>
-    <select id = "author"  >
-        <option> Angela+Merkel </option>
-        <option> Frank-Walter+Steinmeier </option>
-        <option> Joachim+Gauck </option>
-        <option> Johannes+Rau </option>
-    </select>
-</form>
-Start Datum
-<form>
-    <select id = "start" >
-        <option> 1995 </option>
-        <option> 2010 </option>
-        <option> 2015 </option>
-        <option> 2020 </option>
-    </select>
-</form>
-End Datum
-<form>
-    <select id = "stop" >
-        <option> 2000 </option>
-        <option> 2010 </option>
-        <option> 2015 </option>
-        <option> 2020 </option>
-    </select>
-</form>
-<button type="button" onclick="rerun()">Los!</button>
+<!--Templates-->
 
-<!-- Create a div where the graph will take place -->
-<div id="my_dataviz"></div>
-<script src="index.js" ></script>
+<template id="tmpl">
+    <div name="option">
+        <div class="room">
+            <div>
+            Redner:in
+            <form>
+                <select class="author"  >
+                    <option> Angela+Merkel </option>
+                    <option> Frank-Walter+Steinmeier </option>
+                    <option> Joachim+Gauck </option>
+                    <option> Johannes+Rau </option>
+                </select>
+            </form>
+            </div>
+            <span class="residents">
+            <form>
+                <select class = "start" >
+                    <option> 1995 </option>
+                    <option> 2010 </option>
+                    <option> 2015 </option>
+                    <option> 2020 </option>
+                </select>
+            </form>
+            <form>
+                <select class = "stop" >
+                    <option> 2000 </option>
+                    <option> 2010 </option>
+                    <option> 2015 </option>
+                    <option> 2020 </option>
+                </select>
+            </form>
+        </span>
+        </div>
+    </div>
+</template>
+
+<!--Main-->
+<!--<input type="text" id="member" name="member" value="">Number of members: (max. 10)<br />-->
+
+    <select id="number_queries" onchange="if (this.selectedIndex) addFields()" >
+        <option value="-1" selected> -- </option>
+        <option value="1"> 1 </option>
+        <option value="2"> 2 </option>
+        <option value="3"> 3 </option>
+        <option value="4"> 4 </option>
+        <option value="5"> 5 </option>
+        <option value="6"> 6 </option>
+        <option value="7"> 7 </option>
+    </select>
+
+<!--<a href="#" id="filldetails" onclick="addFields()">Fill Details</a>-->
+<button type="button" onclick="start()">Los!</button>
+<div id="container"/>
+
 </body>
-
-
+</html>

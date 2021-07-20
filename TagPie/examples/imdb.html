@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<title>Politische Reden TagPie</title>
+
+<head>
+	<link href="style.css" rel="stylesheet">
+	<link href="../tagpies.css" rel="stylesheet">
+	<script src="../lib/jquery.min.js"></script>
+	<script src="../lib/d3.v3.min.js"></script>
+	<script src="../d3.layout.cloud.tagpies.js"></script>
+	<script src="../TagPie.js"></script>
+</head>
+
+<body>
+
+<template id="tmpl">
+    <div name="option">
+        <div class="room">
+            <div>
+                Redner:in
+                <form>
+                    <select class="author"  >
+                        <option> Angela+Merkel </option>
+                        <option> Frank-Walter+Steinmeier </option>
+                        <option> Joachim+Gauck </option>
+                        <option> Johannes+Rau </option>
+                    </select>
+                </form>
+            </div>
+            <span class="residents">
+            <form>
+                <select class = "start" >
+                    <option> 1995 </option>
+                    <option> 2010 </option>
+                    <option> 2015 </option>
+                    <option> 2020 </option>
+                </select>
+            </form>
+            <form>
+                <select class = "stop" >
+                    <option> 2000 </option>
+                    <option> 2010 </option>
+                    <option> 2015 </option>
+                    <option> 2020 </option>
+                </select>
+            </form>
+        </span>
+        </div>
+    </div>
+</template>
+
+<!--Redner:in 1-->
+<!--<form>-->
+<!--    <select id = "author1"  >-->
+<!--        <option> Angela+Merkel </option>-->
+<!--        <option> Frank-Walter+Steinmeier </option>-->
+<!--        <option> Joachim+Gauck </option>-->
+<!--        <option> Johannes+Rau </option>-->
+<!--    </select>-->
+<!--</form>-->
+<!--Start Datum 1-->
+<!--<form>-->
+<!--    <select id = "start1" >-->
+<!--        <option> 1995 </option>-->
+<!--        <option> 2010 </option>-->
+<!--        <option> 2015 </option>-->
+<!--        <option> 2020 </option>-->
+<!--    </select>-->
+<!--</form>-->
+<!--End Datum 1-->
+<!--<form>-->
+<!--    <select id = "stop1" >-->
+<!--        <option> 2000 </option>-->
+<!--        <option> 2010 </option>-->
+<!--        <option> 2015 </option>-->
+<!--        <option> 2020 </option>-->
+<!--    </select>-->
+<!--</form>-->
+<!--&lt;!&ndash;<button type="button" onclick="los">Los!</button>&ndash;&gt;-->
+
+<!--Redner:in 2-->
+<!--<form>-->
+<!--    <select id = "author2"  >-->
+<!--        <option> Angela+Merkel </option>-->
+<!--        <option> Frank-Walter+Steinmeier </option>-->
+<!--        <option> Joachim+Gauck </option>-->
+<!--        <option> Johannes+Rau </option>-->
+<!--    </select>-->
+<!--</form>-->
+<!--Start Datum 2-->
+<!--<form>-->
+<!--    <select id = "start2" >-->
+<!--        <option> 1995 </option>-->
+<!--        <option> 2010 </option>-->
+<!--        <option> 2015 </option>-->
+<!--        <option> 2020 </option>-->
+<!--    </select>-->
+<!--</form>-->
+<!--End Datum 2-->
+<!--<form>-->
+<!--    <select id = "stop2" >-->
+<!--        <option> 2000 </option>-->
+<!--        <option> 2010 </option>-->
+<!--        <option> 2015 </option>-->
+<!--        <option> 2020 </option>-->
+<!--    </select>-->
+<!--</form>-->
+
+<select id="number_queries" onchange="if (this.selectedIndex) addFields()" >
+    <option value="-1" selected> -- </option>
+    <option value="1"> 1 </option>
+    <option value="2"> 2 </option>
+    <option value="3"> 3 </option>
+    <option value="4"> 4 </option>
+    <option value="5"> 5 </option>
+    <option value="6"> 6 </option>
+    <option value="7"> 7 </option>
+</select>
+
+<!--<a href="#" id="filldetails" onclick="addFields()">Fill Details</a>-->
+<button type="button" onclick="start()">Los!</button>
+<div id="container"/>
+
+<div id="vis"></div>
+
+<div id="overlay"></div>
+
+<script src="imdb.js"></script>
+
+</body>
