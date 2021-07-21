@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<title>Politische Reden TagPie</title>
+
+<head>
+	<link href="style.css" rel="stylesheet">
+	<link href="tagpies.css" rel="stylesheet">
+	<script src="lib/jquery.min.js"></script>
+	<script src="lib/d3.v3.min.js"></script>
+	<script src="d3.layout.cloud.tagpies.js"></script>
+	<script src="TagPie.js"></script>
+</head>
+
+<body>
+
+<template id="tmpl">
+    <div style="
+            background: lightslategray;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid lightgray;
+            margin: 10px;">
+            <div style="text-align: center; padding: 10px;">
+                    <span style="padding: 5px;">Redner:in</span>
+                    <select class="author"  >
+                        <option>Angela+Merkel</option>
+                        <option>Frank-Walter+Steinmeier</option>
+                        <option>Joachim+Gauck</option>
+                        <option>Johannes+Rau</option>
+                        <option>Horst+Köhler</option>
+                        <option>Gerhard+Schröder</option>
+                        <option>Roman+Herzog</option>
+                        <option>Helmut+Kohl</option>
+                        <option>Josef+Cap</option>
+                        <option>Bernd+Neumann</option>
+                        <option>Heinz-Christian+Strache</option>
+                        <option>Alexander+Van+der+Bellen</option>
+                        <option>Monika+Grütters</option>
+                        <option>Heiko+Maas</option>
+                        <option>Herbert+Scheibner</option>
+                        <option>Wolfgang+Thierse</option>
+                        <option>Christina+Weiss</option>
+                        <option>Christian+Wulff</option>
+                        <option>Eva+Glawischnig-Piesczek</option>
+                        <option>Doris+Leuthard</option>
+                        <option>Guido+Westerwelle</option>
+                        <option>Wolfgang+Schüssel</option>
+                        <option>Norbert+Lammert</option>
+                        <option>Alfred+Gusenbauer</option>
+                        <option>Moritz+Leuenberger</option>
+                        <option>Andreas+Khol</option>
+                        <option>Thomas+de+Maizière</option>
+                        <option>Michael+Roth</option>
+                        <option>Peter+Kostelka</option>
+                        <option>Johann+Schneider-Ammann</option>
+                        <option>Hans-Rudolf+Merz</option>
+                        <option>Andreas+Schieder</option>
+                        <option>Werner+Müller</option>
+                        <option>Joschka+Fischer</option>
+                        <option>Wolfgang+Schäuble</option>
+                        <option>Sigmar+Gabriel</option>
+                        <option>Ursula+von+der+Leyen</option>
+                        <option>Werner+Faymann</option>
+                        <option>Karlheinz+Kopf</option>
+                        <option>Jörg+Haider</option>
+                        <option>Didier+Burkhalter</option>
+                    </select>
+
+            </div>
+            <div style="text-align: center;">
+                <span style="padding: 5px;">Start</span>
+                <select class = "start" >
+                    <option> 1982 </option>
+                    <option> 1983 </option>
+                    <option> 1984 </option>
+                    <option> 1985 </option>
+                    <option> 1986 </option>
+                    <option> 1987 </option>
+                    <option> 1988 </option>
+                    <option> 1989 </option>
+                    <option> 1990 </option>
+                    <option> 1991 </option>
+                    <option> 1992 </option>
+                    <option> 1993 </option>
+                    <option> 1994 </option>
+                    <option> 1995 </option>
+                    <option> 1996 </option>
+                    <option> 1997 </option>
+                    <option> 1998 </option>
+                    <option> 1999 </option>
+                    <option> 2000 </option>
+                    <option> 2001 </option>
+                    <option> 2002 </option>
+                    <option> 2003 </option>
+                    <option> 2004 </option>
+                    <option> 2005 </option>
+                    <option> 2006 </option>
+                    <option> 2007 </option>
+                    <option> 2008 </option>
+                    <option> 2009 </option>
+                    <option> 2010 </option>
+                    <option> 2011 </option>
+                    <option> 2012 </option>
+                    <option> 2013 </option>
+                    <option> 2014 </option>
+                    <option> 2015 </option>
+                    <option> 2016 </option>
+                    <option> 2017 </option>
+                    <option> 2018 </option>
+                    <option> 2019 </option>
+                    <option> 2020 </option>
+                </select>
+                <span style="padding: 5px;">Ende</span>
+                <select class = "stop" >
+                    <option> 1982 </option>
+                    <option> 1983 </option>
+                    <option> 1984 </option>
+                    <option> 1985 </option>
+                    <option> 1986 </option>
+                    <option> 1987 </option>
+                    <option> 1988 </option>
+                    <option> 1989 </option>
+                    <option> 1990 </option>
+                    <option> 1991 </option>
+                    <option> 1992 </option>
+                    <option> 1993 </option>
+                    <option> 1994 </option>
+                    <option> 1995 </option>
+                    <option> 1996 </option>
+                    <option> 1997 </option>
+                    <option> 1998 </option>
+                    <option> 1999 </option>
+                    <option> 2000 </option>
+                    <option> 2001 </option>
+                    <option> 2002 </option>
+                    <option> 2003 </option>
+                    <option> 2004 </option>
+                    <option> 2005 </option>
+                    <option> 2006 </option>
+                    <option> 2007 </option>
+                    <option> 2008 </option>
+                    <option> 2009 </option>
+                    <option> 2010 </option>
+                    <option> 2011 </option>
+                    <option> 2012 </option>
+                    <option> 2013 </option>
+                    <option> 2014 </option>
+                    <option> 2015 </option>
+                    <option> 2016 </option>
+                    <option> 2017 </option>
+                    <option> 2018 </option>
+                    <option> 2019 </option>
+                    <option> 2020 </option>
+                </select>
+            </div>
+    </div>
+</template>
+
+
+
+
+
+<div class="header">
+    <span id="title">TagPie Politische Reden</span>
+    <span id="anzahl">Anzahl der Redner:innen</span>
+    <select id="number_queries" onchange="if (this.selectedIndex) addFields()" >
+        <option value="-1" selected> -- </option>
+        <option value="1"> 1 </option>
+        <option value="2"> 2 </option>
+        <option value="3"> 3 </option>
+        <option value="4"> 4 </option>
+        <option value="5"> 5 </option>
+        <option value="6"> 6 </option>
+        <option value="7"> 7 </option>
+    </select>
+    <span id="limit" style="font-size: 16px;">Anzahl der Wörter</span>
+    <select id="limit_options" >
+        <option value="100"> 100 </option>
+        <option value="300"> 300 </option>
+        <option value="500"> 500 </option>
+        <option value="700"> 700 </option>
+    </select>
+    <button id="start_button" type="button" onclick="tagpie()">Los!</button>
+</div>
+
+<section>
+    <nav>
+        <div id="container"></div>
+    </nav>
+    <article>
+        <div id="vis"></div>
+        <div id="overlay"></div>
+    </article>
+</section>
+
+
+
+<script src="index.js"></script>
+
+</body>
+
+
+
+
